@@ -1,0 +1,11 @@
+<h1>Edit <%= @album.name %></h1>
+
+<%= flash_now_information %>
+
+<form id="edit_album" action="<%=album_url(@album)%>" method="post">
+
+  <input type="hidden" name="_method" value="PATCH">
+
+  <%= render "form" %>
+
+</form>

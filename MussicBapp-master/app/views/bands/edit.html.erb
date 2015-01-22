@@ -1,0 +1,11 @@
+<h1>Edit Band</h1>
+
+<%= flash_now_information %>
+
+<form id="edit_band" action="<%=band_url(@band)%>" method="post">
+
+  <input type="hidden" name="_method" value="PATCH">
+
+  <%= render "form" %>
+
+</form>

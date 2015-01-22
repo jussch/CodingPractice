@@ -1,0 +1,11 @@
+<pre><p><%= parent_comment.content %></p></pre>
+<pre>--<%= parent_comment.author.name %> at <%= parent_comment.created_at %></pre>
+<pre>    <a href="<%= comment_url(parent_comment.id) %>">\Reply\</a></pre>
+Hotness: <%= parent_comment.vote_count %>
+<%= button_to "Upvote", upvote_comment_url(parent_comment), method: :post %>
+<%= button_to "Downvote", downvote_comment_url(parent_comment), method: :post %>
+<ul>
+  <% @all_comments[parent_comment.id].sort{|x,y| y.vote_count <=> x.vote_count}.each do |comment| %>
+    <li><%= render "comments/comment", parent_comment: comment %></li>
+  <% end %>
+</ul>

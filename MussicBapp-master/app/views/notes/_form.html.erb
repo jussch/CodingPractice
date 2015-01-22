@@ -1,0 +1,14 @@
+<form id="new_note" action="<%=track_notes_url(@track.id)%>" method="post">
+  <%= make_authenticity_token %>
+  <input type="hidden" name="note[track_id]" value="<%=@track.id%>">
+  <label>
+    New Note
+    <br>
+    <textarea name="note[body]"></textarea>
+  </label>
+  <br>
+  --<%=current_user.email%>
+  <br>
+  <input type="submit">
+
+</form>

@@ -1,0 +1,18 @@
+<h1>Reddat Front Page</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li>
+    <% if post.url.nil? %>
+    <a href="<%= post_url(post) %>">
+      <% else %>
+      <a href="<%= post.url %>">
+        <% end %>
+        <%= post.title %>
+      </a> <br>
+      <h5><a href="<%= post_url(post) %>"> -Comments- </a></h5>
+    </li>
+    <% end %>
+
+    <li><a href="<%=new_post_url(@sub)%>">--OR CREATE A NEW POST HERE--</a></li>
+  </ul>

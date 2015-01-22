@@ -1,0 +1,23 @@
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label for="title">Title</label>
+<input type="text" name="goal[title]" value="<%= @goal.title %>" id="title">
+<br>
+
+<label for="content">Content</label>
+<br>
+<textarea name="goal[content]" rows="8" cols="120" id="content"><%= @goal.content %></textarea>
+<br>
+
+Access
+<br>
+<label>Private
+  <input type="radio" name="goal[access]" value="Private" <%= @goal.check_if_private %>>
+</label>
+
+<label>PubicHair
+  <input type="radio" name="goal[access]" value="Public" <%= @goal.check_if_public %>>
+</label>
+
+<br>
+
+<button name="button">Submit</button>

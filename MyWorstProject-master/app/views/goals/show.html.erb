@@ -1,0 +1,41 @@
+<h1><%= @goal.title %> - <%= @goal.completion %></h1>
+
+
+
+<% if @goal.user_id == current_user.id %>
+<form action="<%= edit_goal_url(@goal) %>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button name="button">Edit Goal</button>
+</form>
+
+<form action="<%= goal_url(@goal) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+
+  <button name="button" data-confirm="Goat's Blood?">Delete Goal</button>
+</form>
+
+<% unless @goal.is_complete? %>
+<form action="<%= goal_complete_url(@goal) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button name="button">Complete Goal</button>
+</form>
+<% end %>
+<% end %>
+
+<pre><p>
+  <%= @goal.content %>
+</p></pre>
+
+<h2>COMMENTS</h2>
+<ul>
+  <li><%= render "comments/form", co_id: @goal.id, co_type: "Goal" %></li>
+  <% @goal.comments.includes(:user).each do |comment| %>
+  <li><%= render "comments/comment", comment: comment %></li>
+  <% end %>
+</ul>
+<a href="<%= goals_url %>">Return to Goal Index</a>
+
+
+
+<a href="<%= goals_url %>">Return to Index</a>

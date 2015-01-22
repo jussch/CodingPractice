@@ -1,0 +1,12 @@
+<h1>Justoon is a guava</h1>
+<h2>Goals Index</h2>
+
+<ul>
+  <% @goals.each do |goal| %>
+  <li><a href="<%= goal_url(goal) %>"><%= goal.title %></a>
+     - <%= goal.completion %></li>
+  <% end %>
+</ul>
+
+<a href="<%= new_goal_url %>">Create Goal</a>
+<br>

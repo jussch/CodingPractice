@@ -1,0 +1,5 @@
+<pre><p><%= comment.body %></p>-- <%= comment.user.username %> at <%= comment.created_at %>
+  <% if current_user.id == comment.user_id %>
+  <%= button_to "Delete", comment_url(comment), method: :destroy %>
+  <% end %>
+</pre>

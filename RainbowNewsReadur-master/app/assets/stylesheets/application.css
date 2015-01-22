@@ -1,0 +1,153 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+html, body, ul, li, a, input, h1, h2, label, div, button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+body {
+  background: url(http://www.hdwallpapersinn.com/wp-content/uploads/2014/08/rainbow-hdcurl-rainbow-line-desktop-wallpaper-hd-1080p-1680x1050-widescreen-mkw8naqo.jpg) top left;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  font: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+input, button {
+  outline: inherit;
+  box-sizing: inherit;
+  cursor: pointer;
+}
+
+h1, a.nav, h2, button.refresh, ul, div.footer, form {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid black;
+  box-shadow: 3px 3px grey;
+}
+
+h1 {
+  font: 40px futura;
+  background-color: #FF0000;
+}
+
+a.index {
+  background-color: #FF9D00;
+  border-radius: 15px;
+}
+
+a.newFeed {
+  background-color: #F7F145;
+  border-radius: 15px;
+}
+
+h2 {
+  font: 30px futura;
+  background-color: #00FF08;
+}
+
+button.refresh {
+  background-color: #008CFF;
+  border-radius: 15px;
+}
+
+ul.feeds, ul.entries, form.new-feed {
+  background-color: #8843F7;
+}
+
+div.footer {
+  background-color: #F743F4;
+  color: white;
+}
+
+li, .new-feed label {
+  position: relative;
+}
+
+li a, .new-feed label {
+  display: block;
+  background-color: #69139C;
+  color: white;
+  padding: 5px;
+  margin: 5px auto;
+  border: 2px solid black;
+  box-shadow: 2px 2px #A16DBF;
+}
+
+li .delete-feed {
+  position: absolute;
+  background-color: #E3B8FC;
+  padding: 2px 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: 8px;
+  bottom: 5px;
+  width: 50px;
+  left: 320px;
+}
+
+a.nav:hover, button:hover, li a:hover, input.submit {
+  background-color: #94FFF3;
+  color: black;
+}
+
+a.nav:active, button:active, li a:active, input.submit {
+  background-color: #9E0E0E;
+  color: white;
+}
+
+.new-feed label {
+  display:block;
+}
+.new-feed label:after {
+  display:block;
+  content: "";
+  clear:both;
+}
+
+.new-feed label input {
+  background-color: #94FFF3;
+  color: black;
+  float:right;
+  padding: 3px;
+  width: 70%;
+  border: 2px solid black;
+  cursor: wait;
+}
+
+.new-feed input.submit {
+  background-color: red;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 15px;
+  cursor: progress;
+}
+
+.new-feed label input:focus {
+  outline: 2px solid red;
+  background-color: black;
+  color: red;
+}

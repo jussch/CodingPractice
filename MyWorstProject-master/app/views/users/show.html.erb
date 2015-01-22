@@ -1,0 +1,20 @@
+<h1>hi justoon</h1>
+
+<%= @user.username %>
+<br>
+
+<ul>
+  <% @user.goals.each do |goal| %>
+    <% next if goal.access == "Private" && @user.id != current_user.id %>
+    <li><a href="<%=goal_url(goal)%>"><%= goal.title %></a> - <%= goal.completion %></li>
+  <% end %>
+</ul>
+<h2>COMMENTS</h2>
+<ul>
+  <li><%= render "comments/form", co_id: @user.id, co_type: "User" %></li>
+  <% @user.comments.includes(:user).each do |comment| %>
+    <li><%= render "comments/comment", comment: comment %></li>
+  <% end %>
+
+</ul>
+<a href="<%= goals_url %>">Return to Goal Index</a>

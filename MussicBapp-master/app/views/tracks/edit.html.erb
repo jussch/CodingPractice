@@ -1,0 +1,11 @@
+<h1>Edit Track: <%=@track.name%></h1>
+
+<%= flash_now_information %>
+
+<form id="new_track" action="<%=track_url(@track)%>" method="post">
+
+  <input type="hidden" name="_method" value="PATCH">
+
+  <%= render "form" %>
+
+</form>

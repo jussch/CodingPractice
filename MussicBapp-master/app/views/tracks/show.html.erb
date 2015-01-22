@@ -1,0 +1,28 @@
+<h1>Track: <%=@track.name%> - <%=@track.track_type%></h1>
+
+<form id="edit_this" action="<%=edit_track_url(@track)%>" method="get">
+  <%= make_authenticity_token %>
+  <input type="submit" value="Edit Track">
+</form>
+<form id="delete_this" action="<%=track_url(@track)%>" method="post">
+  <%= make_authenticity_token %>
+  <input type="hidden" name="_method" value="DELETE">
+  <input data-confirm='Are you sure?' value="Delete Track" type="submit">
+</form>
+<br>
+
+<a href="<%=album_url(@track.album_id)%>">Back to <%=@track.album.name%></a>
+
+<h3>Lyrics</h3>
+<br>
+<pre>
+  <%=ugly_lyrics(@track.lyrics)%>
+</pre>
+<br>
+<h3>Notes</h3>
+<ul>
+  <% @track.notes.each do |note| %>
+    <li><%= render "notes/note", note: note %></li>
+  <% end %>
+  <li><%=render "notes/form"%></li>
+</ul>

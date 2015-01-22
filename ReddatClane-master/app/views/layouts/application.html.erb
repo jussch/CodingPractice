@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ReddatClane</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if signed_in? %>
+    <form action="<%= sessions_url %>" method="post">
+      <%= token_tag form_authenticity_token %>
+      <input type="hidden" name="_method" value="delete">
+
+      <input type="submit" value="Log out">
+
+    </form> </br>
+  <% end %>
+
+<% flash[:notice].try(:each) do |notice| %>
+  <%= notice %> </br>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+<% if (post.validationError) { %>
+  <% post.validationError.forEach( function (e) {  %>
+    <%= e %>
+  <% }) %>
+<% } %>
+
+<form class="post-form" action="index.html" method="post">
+
+  <label>TIT-LE
+    <input type="text" name="post[title]" value="<%= post.escape('title') %>">
+  </label>
+
+  <label>BOOTY
+    <textarea name="post[body]" rows="8" cols="40"><%= post.escape('body') %></textarea>
+  </label>
+
+  <input class="submit" type="submit" value="Submit">
+</form>

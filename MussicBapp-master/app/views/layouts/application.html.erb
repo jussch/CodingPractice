@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MussicBapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if logged_in? %>
+  <h3>Welcome <%= current_user.email %>
+    <form id="logout" action="<%= session_url %>" method="post">
+      <%= make_authenticity_token %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" name="logout" value="logout">
+    </form>
+  </h3>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

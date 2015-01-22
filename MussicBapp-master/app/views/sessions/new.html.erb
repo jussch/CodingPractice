@@ -1,0 +1,14 @@
+<h1>Login</h1>
+
+<%= flash_now_information %>
+
+<form id="form_id" action="<%= session_url %>" method="post">
+
+  <%= render "layouts/user_form" %>
+
+</form>
+
+<br>
+<div>
+  <a href="<%= new_user_url %>">or register here!</a>
+</div>

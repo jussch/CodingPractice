@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AppOfGoals</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if request.env["SERVER_NAME"] == "localhost" %>
+  <%= flash[:errors] %>
+  <% if signed_in? %>
+  Signed in as: <%=  current_user.username %>
+    <%= button_to "Log Out", session_url, method: :delete %>
+  <% end %>
+
+  <% unless signed_in? %>
+  <a href="<%= new_user_url %>">Sign Up</a>
+  <% end %>
+
+
+  <%= yield %>
+<% else %>
+  FUCK OFF HAKERT
+<% end %>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<h1>Post:
+  <% if @post.url.empty? %>
+    <%= @post.title %>
+  <% else %>
+    <a href="<%= @post.url %>"><%= @post.title %></a>
+  <% end %></h1>
+
+<% if current_user.id == @post.author_id %>
+
+  <form id="" action="<%= edit_post_url(@post) %>" method="get">
+    <%= token_tag form_authenticity_token %>
+
+    <input type="submit" value= "Edit post">
+  </form>
+
+
+  <form id="" action="<%= post_url(@post) %>" method="post">
+    <%= token_tag form_authenticity_token %>
+    <input type="hidden" name="_method" value="delete">
+
+    <input data-confirm="Are you sure?" type="submit" value= "Destroy post">
+  </form>
+
+<% end %>
+Hotness: <%= @post.vote_count %>
+<%= button_to "Upvote", upvote_post_url(@post), method: :post %>
+<%= button_to "Downvote", downvote_post_url(@post), method: :post %>
+
+
+<pre><p><%= @post.content %> </p></pre>
+
+
+<h3>Comments</h3>
+<ul>
+  <% @all_comments[nil].sort{|x,y| y.vote_count <=> x.vote_count}.each do |comment| %>
+  <li><%= render "comments/comment", parent_comment: comment %></li>
+  <% end %>
+
+  <li><%= render "comments/form", post_id: @post.id, parent_comment_id: nil %></li>
+</ul>

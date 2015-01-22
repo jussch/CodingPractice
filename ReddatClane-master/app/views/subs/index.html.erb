@@ -1,0 +1,10 @@
+<h1>REDDAT</h1>
+
+<a href="<%= new_post_url %>">--Make a Post!--</a>
+
+<ul>
+  <% @subs.each do |sub| %>
+    <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a></li>
+  <% end %>
+  <li><a href="<%=new_sub_url%>">--OR CREATE A NEW SUB-REDDAT HERE--</a></li>
+</ul>

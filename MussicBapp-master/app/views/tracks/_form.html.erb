@@ -1,0 +1,39 @@
+<%= make_authenticity_token %>
+
+<label>
+  Name
+  <input type="text" name="track[name]" value="<%=@track.name%>">
+</label>
+<br>
+
+<label>
+  Album
+  <select name="track[album_id]">
+    <% Album.all.each do |album| %>
+    <option value="<%=album.id%>" <%='selected' if @track.album_id == album.id%>>
+      <%=album.name%>
+    </option>
+    <% end %>
+  </select>
+</label>
+<br>
+
+<label >
+  Regular Track
+  <input type="radio" name="track[track_type]"
+  value="Regular" <%=@track.select_if_regular%> >
+</label>
+<label >
+  Bonus Track
+  <input type="radio" name="track[track_type]"
+  value="Bonus" <%=@track.select_if_bonus%> >
+</label>
+<br>
+
+<label>
+  Lyrics
+  <textarea name="track[lyrics]"><%=@track.lyrics%></textarea>
+</label>
+<br>
+
+<input type="submit">

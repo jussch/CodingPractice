@@ -1,0 +1,28 @@
+<h1>SUBREDDAT: <%= @sub.title %></h1>
+<pre><p><%= @sub.description %></p></pre>
+
+
+<% if current_user.id == @sub.moderator_id %>
+  <a href="<%= edit_sub_url(@sub) %>">Edit your Subreddat!</a>
+<% end %>
+
+<ul>
+  <% @sub.posts.sort{|x,y| y.vote_count <=> x.vote_count}.each do |post| %>
+    <li>
+      <% if post.url.empty? %>
+        <a href="<%= post_url(post) %>">
+      <% else %>
+        <a href="<%= post.url %>">
+      <% end %>
+      <%= post.title %>
+    </a>
+Hotness: <%= post.vote_count %>
+    <%= button_to "Upvote", upvote_post_url(post), method: :post %>
+    <%= button_to "Downvote", downvote_post_url(post), method: :post %>
+    <br>
+    <pre>   <a href="<%= post_url(post) %>">-Comments-</a></pre>
+    </li>
+  <% end %>
+
+  <li><a href="<%=new_sub_posts_url(@sub)%>">--OR CREATE A NEW POST HERE--</a></li>
+</ul>

@@ -1,0 +1,15 @@
+<%= token_tag form_authenticity_token %>
+
+<label>Name
+  <input type="text" name="user[name]" value="<%= @user.name %>">
+</label>
+
+<br>
+
+<label>Password
+  <input type="password" name="user[password]" value="">
+</label>
+
+<br>
+
+<input type="submit" value="Submit">

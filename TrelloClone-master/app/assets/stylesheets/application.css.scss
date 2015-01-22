@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.all
+ *= require_tree .
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+
+ul.lists, ul.cards {
+  list-style: none;
+}
+
+body {
+  background-color: #3B7DC4;
+}
+
+ul.lists {
+  margin: 0;
+}
+
+li.card:after, li.list:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+li.list {
+  display: block;
+  width: 300px;
+  float: left;
+  background-color: #DAD9DE;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+ul.cards{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+li.card {
+  display: block;
+  width: 260;
+  margin: 10px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px #CFCFCF;
+}
+
+div.button-hider {
+  float: right;
+  display: block;
+  width: 30px;
+  padding: 2px;
+  overflow: hidden;
+}
+
+button.delete-card {
+  position: relative;
+  border: 1px solid grey;
+  right: -50px;
+  -webkit-transition: right 0.5s;
+}
+
+button.delete-card.revealed {
+  right: 0px;
+}
